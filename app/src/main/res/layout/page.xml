@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center"
+	android:orientation="vertical">
+
+
+
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+android:id="@+id/sliding_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="bottom"
+sothree:umanoDragView="@+id/dragView"
+sothree:umanoOverlay="true"
+sothree:umanoPanelHeight="30dp"
+sothree:umanoParalaxOffset="100dp"
+sothree:umanoShadowHeight="4dp">
+
+
+<FrameLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingBottom="30dp">
+	<VideoView
+		android:id="@+id/videoView"
+		android:layout_width="fill_parent"
+		android:layout_height="535dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_gravity="center"
+		android:scaleType="fitXY"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/text"
+		android:layout_gravity="bottom"
+		android:gravity="center"
+		android:textSize="50sp"
+		android:text="@string/title"
+		android:textColor="#fc0303"/>
+</FrameLayout>
+<LinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="30dp"
+		android:textSize="10sp"
+		android:text="¡DESLÍZAME O PÚLSAME...A TU GUSTO CAMPEÓN!"
+		android:textColor="#f2f0f0"
+		android:background="#0b0b0b"
+
+		android:gravity="center"/>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/tvtitle2"
+				android:layout_gravity="bottom"
+				android:gravity="center"
+				android:textSize="30sp"
+				android:text="@string/title"
+				android:textColor="#000000"
+				android:background="#ffffff"/>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/descripcion"
+				android:gravity="center_horizontal"
+				android:textColor="#000000"
+				android:textSize="20sp"
+				android:background="#ffffff" />
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</LinearLayout>

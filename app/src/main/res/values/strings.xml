@@ -1,0 +1,11 @@
+<resources>
+
+	<string name="app_name">Aluxion Feed</string>
+	<string name="title_activity_main">Aluxion Feed</string>
+	<string name="item">Page %d</string>
+	<string name="descripcion">Ánimo chicos, somos los mejores!!!!!
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar nisl nec imperdiet euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis dui augue, faucibus nec risus vitae, scelerisque mattis nunc. Nullam at lacus ac dui iaculis pretium. Nullam tempor purus aliquet velit eleifend, non iaculis magna tincidunt. Nunc lectus erat, tempor eu mauris eget, eleifend sagittis urna. Etiam sit amet molestie leo. Morbi ornare eget leo sed scelerisque. Nam in leo nisl. Duis malesuada libero vel imperdiet pulvinar. Nullam euismod eu ligula eget consequat. Praesent suscipit ornare tempor. Curabitur mollis nulla sit amet odio pellentesque, non vestibulum metus dictum. Integer dapibus vulputate facilisis. Nam eu justo euismod ipsum congue vulputate eget at sapien. Fusce a ipsum nibh. Donec iaculis nisi sapien, sit amet interdum dolor efficitur ut. Suspendisse sed mi eu sapien pretium euismod eu sed libero. Suspendisse pellentesque ultrices euismod. Vivamus turpis lacus, ultrices in consequat et, posuere a augue. Donec euismod massa nec felis consequat vestibulum eget at felis. Nullam euismod neque et tempus tempus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus id tincidunt diam, quis vehicula velit.
+    </string>
+	<string name="title">KMILION</string>
+
+</resources>
