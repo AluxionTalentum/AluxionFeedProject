@@ -22,11 +22,11 @@ public class ScrollableViewHelper {
      * @return the scroll position
      */
 
-    public void getSlidingUpToStopVideo(View scrollableView, boolean isSlidingUp){
+    public boolean getSlidingUpToStopVideo(View scrollableView, boolean isSlidingUp){
         if (isSlidingUp){
-            isSlidingUp=true;
+            return true;
         }else{
-            isSlidingUp=false;
+            return false;
         }
     }
 

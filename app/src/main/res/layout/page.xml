@@ -13,15 +13,14 @@ android:layout_height="match_parent"
 android:gravity="bottom"
 sothree:umanoDragView="@+id/dragView"
 sothree:umanoOverlay="true"
-sothree:umanoPanelHeight="30dp"
+sothree:umanoPanelHeight="40dp"
 sothree:umanoParalaxOffset="100dp"
 sothree:umanoShadowHeight="4dp">
 
 
-<FrameLayout
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:paddingBottom="30dp">
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
 	<VideoView
 		android:id="@+id/videoView"
 		android:layout_width="fill_parent"
@@ -30,26 +29,30 @@ sothree:umanoShadowHeight="4dp">
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentRight="true"
-		android:layout_gravity="center"
-		android:scaleType="fitXY"/>
+		android:layout_gravity="center"/>
+
 
 	<TextView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="match_parent"
 		android:id="@+id/text"
+		android:paddingLeft="10dp"
+		android:paddingBottom="50dp"
 		android:layout_gravity="bottom"
-		android:gravity="center"
-		android:textSize="50sp"
-		android:text="@string/title"
-		android:textColor="#fc0303"/>
-</FrameLayout>
+		android:gravity="bottom"
+		android:textSize="40sp"
+
+		android:textColor="#ffffff"/>
+</RelativeLayout>
+
 <LinearLayout
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:id="@+id/segundoBloque">
 	<TextView
 		android:layout_width="match_parent"
-		android:layout_height="30dp"
+		android:layout_height="40dp"
 		android:textSize="10sp"
 		android:text="¡DESLÍZAME O PÚLSAME...A TU GUSTO CAMPEÓN!"
 		android:textColor="#f2f0f0"
@@ -67,18 +70,18 @@ sothree:umanoShadowHeight="4dp">
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:id="@+id/tvtitle2"
+				android:id="@+id/bodyTitle"
 				android:layout_gravity="bottom"
 				android:gravity="center"
 				android:textSize="30sp"
-				android:text="@string/title"
 				android:textColor="#000000"
 				android:background="#ffffff"/>
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="@string/descripcion"
+				android:id="@+id/bodyText"
 				android:gravity="center_horizontal"
+				android:minHeight="483dp"
 				android:textColor="#000000"
 				android:textSize="20sp"
 				android:background="#ffffff" />
