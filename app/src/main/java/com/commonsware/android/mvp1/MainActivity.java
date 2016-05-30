@@ -16,6 +16,7 @@ package com.commonsware.android.mvp1;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,9 +32,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
+
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +61,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
     pager.setAdapter(new SampleAdapter());
 
     pager.setOffscreenPageLimit(1);
-      pager.setOnPageChangeListener(this);
+      pager.addOnPageChangeListener(this);
       segundoBloque =(LinearLayout)findViewById(R.id.segundoBloque);
   }
 
@@ -93,7 +97,6 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             vv.seekTo(0);
             vv.start();
             vv.requestFocus();
-
         }
 
         public void stopAllVideosLess(int position){
@@ -116,6 +119,9 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         VideoView vv=(VideoView)page.findViewById(R.id.videoView);
         TextView tvTitulo=(TextView)page.findViewById(R.id.bodyTitle);
         TextView tvBody=(TextView)page.findViewById(R.id.bodyText);
+
+        addSlideListenerFor(page);
+
 
 
 
@@ -229,12 +235,6 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
         container.addView(page);
 
-        ScrollableViewHelper svh = new ScrollableViewHelper();
-        boolean estaSubido = false;
-       if(svh.getSlidingUpToStopVideo(segundoBloque, estaSubido)==true){
-            vv.pause();
-        }
-
 
       return(page);
     }
@@ -244,6 +244,40 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
                             Object object) {
       container.removeView((View) object);
     }
+
+        void addSlideListenerFor(final View page){
+            final SlidingUpPanelLayout slidePanel = (SlidingUpPanelLayout)page.findViewById(R.id.sliding_layout);
+
+            slidePanel.setPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+                VideoView vv = (VideoView)page.findViewById(R.id.videoView);
+
+                @Override
+                public void onPanelSlide(View panel, float slideOffset) {
+                }
+
+                @Override
+                public void onPanelCollapsed(View panel) {
+                    vv.start();
+                }
+
+                @Override
+                public void onPanelExpanded(View panel) {
+                    vv.pause();
+                }
+
+                @Override
+                public void onPanelAnchored(View panel) {
+
+                }
+
+                @Override
+                public void onPanelHidden(View panel) {
+
+                }
+            });
+
+
+        }
 
     @Override
     public int getCount() {

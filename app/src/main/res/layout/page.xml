@@ -31,7 +31,6 @@ sothree:umanoShadowHeight="4dp">
 		android:layout_alignParentRight="true"
 		android:layout_gravity="center"/>
 
-
 	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
@@ -41,7 +40,7 @@ sothree:umanoShadowHeight="4dp">
 		android:layout_gravity="bottom"
 		android:gravity="bottom"
 		android:textSize="40sp"
-
+		android:fontFamily="roboto"
 		android:textColor="#ffffff"/>
 </RelativeLayout>
 
@@ -54,6 +53,7 @@ sothree:umanoShadowHeight="4dp">
 		android:layout_width="match_parent"
 		android:layout_height="40dp"
 		android:textSize="10sp"
+		android:fontFamily="roboto"
 		android:text="¡DESLÍZAME O PÚLSAME...A TU GUSTO CAMPEÓN!"
 		android:textColor="#f2f0f0"
 		android:background="#0b0b0b"
@@ -70,20 +70,28 @@ sothree:umanoShadowHeight="4dp">
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:paddingTop="7dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
 				android:id="@+id/bodyTitle"
 				android:layout_gravity="bottom"
 				android:gravity="center"
-				android:textSize="30sp"
+				android:fontFamily="roboto"
+				android:textSize="26sp"
 				android:textColor="#000000"
 				android:background="#ffffff"/>
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:paddingTop="20dp"
+				android:paddingLeft="10dp"
+				android:paddingRight="10dp"
 				android:id="@+id/bodyText"
-				android:gravity="center_horizontal"
-				android:minHeight="483dp"
+				android:gravity="left"
+				android:minHeight="560dp"
 				android:textColor="#000000"
-				android:textSize="20sp"
+				android:fontFamily="roboto"
+				android:textSize="17sp"
 				android:background="#ffffff" />
 		</LinearLayout>
 	</ScrollView>
