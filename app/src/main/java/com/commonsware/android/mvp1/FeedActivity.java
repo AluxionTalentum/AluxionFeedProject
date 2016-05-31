@@ -2,65 +2,58 @@ package com.commonsware.android.mvp1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeedActivity extends Activity {
+public class FeedActivity extends Activity implements AdapterView.OnItemClickListener {
 
-    ListView listView;
+    private GridView gridView;
+    private AdaptadorDeCategorias adaptador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
         getActionBar().hide();
-        listView = (ListView)findViewById(R.id.lista);
-
-        String listaPaises[] = {"Nacional",
-        "Internacional",
-        "Deportes",
-        "Entretenimiento",
-        "Cultura",
-        "Corazón",
-        "Videojuegos",
-        "Televisión",
-        "Cine",
-        "Música",
-        "Tecnología",
-        "Turismo",
-        "Adultos"};
-
-        final ArrayAdapter<String> arrayAdapter =
-                new ArrayAdapter<String>(
-                        this,
-                        android.R.layout.simple_list_item_1,
-                        listaPaises);
-
-        listView.setAdapter(arrayAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            //parent, es el adaptador que estamos utilizando
-            //view, es el componente que lanza el evento
-            //position, es la posicion dentro de la listview que hemos pinchado
-            //id, el id del elemento pichado
-            @Override
-            public void onItemClick(AdapterView<?> parent,
-                                    View view,
-                                    int position,
-                                    long id) {
-                String s = (String) parent.getItemAtPosition(position);
-                Intent intent = new Intent(FeedActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        gridView = (GridView) findViewById(R.id.grid);
+        adaptador = new AdaptadorDeCategorias(this);
+        gridView.setAdapter(adaptador);
+        gridView.setOnItemClickListener(this);
 
     }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Coche item = (Coche) parent.getItemAtPosition(position);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        //intent.putExtra(ActividadDetalle.EXTRA_PARAM_ID, item.getId());
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
+            ActivityOptionsCompat activityOptions =
+                    ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            this,
+                            new Pair<View, String>(view.findViewById(R.id.imagen_categoria),
+                                    MainActivity.VIEW_NAME_HEADER_IMAGE)
+                    );
+
+            ActivityCompat.startActivity(this, intent, activityOptions.toBundle());
+        } else
+            startActivity(intent);
+    }
+
 }

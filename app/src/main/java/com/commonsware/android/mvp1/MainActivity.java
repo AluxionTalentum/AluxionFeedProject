@@ -44,6 +44,8 @@ import java.util.List;
 
 public class MainActivity extends Activity implements ViewPager.OnPageChangeListener {
 
+    public static final String VIEW_NAME_HEADER_IMAGE = "imagen_compartida";
+
   private ViewPager pager=null;
     private int currentPagerState = 2;
     LinearLayout segundoBloque;
@@ -221,7 +223,12 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 //        String.format("Isidesma maaaarusma, el vídeo más votado");
 
 
-      tv.setText(titulos[position]);
+        //Feeds feeds = new Feeds(){
+        //};
+
+        //tv.setText(feeds.feedItems[1].titularUno[1]);
+        tv.setText(titulos[position]);
+        //tvTitulo.setText(feeds.feedItems[1].titularUno[1]);
         tvTitulo.setText(titulos[position]);
         tvBody.setText(textos[position]);
 
