@@ -10,24 +10,28 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.List;
+
 /**
  * {@link BaseAdapter} para poblar coches en un grid view
  */
 
 public class AdaptadorDeCategorias extends BaseAdapter {
+    private List<Categoria> categorias;
     private Context context;
-    public AdaptadorDeCategorias(Context context) {
+    public AdaptadorDeCategorias(Context context, List<Categoria> categorias) {
         this.context = context;
+        this.categorias = categorias;
     }
 
     @Override
     public int getCount() {
-        return Categoria.ITEMS.length;
+        return categorias.size();
     }
 
     @Override
     public Categoria getItem(int position) {
-        return Categoria.ITEMS[position];
+        return categorias.get(position);
     }
 
     @Override

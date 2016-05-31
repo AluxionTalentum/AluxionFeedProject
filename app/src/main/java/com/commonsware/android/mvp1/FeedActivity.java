@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.service.textservice.SpellCheckerService;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
@@ -26,12 +27,20 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        MOKFeeds mokFeeds = new MOKFeeds();
+        List<Categoria> categorias = mokFeeds.getCategorias();
+        Sesion.getInstance().setCategorias(mokFeeds.getCategorias());
+
+
         setContentView(R.layout.activity_feed);
         getActionBar().hide();
         gridView = (GridView) findViewById(R.id.grid);
-        adaptador = new AdaptadorDeCategorias(this);
+        adaptador = new AdaptadorDeCategorias(this, Sesion.getInstance().getCategorias());
         gridView.setAdapter(adaptador);
         gridView.setOnItemClickListener(this);
+
 
     }
 
