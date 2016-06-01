@@ -1,8 +1,6 @@
 package com.commonsware.android.mvp1;
 
-/**
- * Clase que representa la existencia de un Coche
- */
+//Clase que representa la existencia de categorías y su constructor
 
 public class Categoria {
     private String categoria;

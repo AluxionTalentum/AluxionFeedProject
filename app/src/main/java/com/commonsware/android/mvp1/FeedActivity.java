@@ -20,6 +20,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+//En esta actividad se muestra la home con un GridView que nos muestra 10 categorías.
+
 public class FeedActivity extends Activity implements AdapterView.OnItemClickListener {
 
     private GridView gridView;
@@ -30,31 +32,29 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Con los siguientes métodos introduzco los datos que voy a necesitar en la clase MOKFeeds.
         MOKFeeds mokFeeds = new MOKFeeds(getResources());
         Sesion.getInstance().setCategorias(mokFeeds.getCategorias());
         Sesion.getInstance().setFeeds(mokFeeds.getArrayFeeds());
 
-
         setContentView(R.layout.activity_feed);
+
+        //Con esto escondo la barra de título de la aplicación.
         getActionBar().hide();
+
         gridView = (GridView) findViewById(R.id.grid);
         adaptador = new AdaptadorDeCategorias(this, Sesion.getInstance().getCategorias());
         gridView.setAdapter(adaptador);
         gridView.setOnItemClickListener(this);
-
-
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Coche item = (Coche) parent.getItemAtPosition(position);
-
 
         Sesion.getInstance().setSelectedFeed(Sesion.getInstance().getFeeds().get(position));
-
         Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra(ActividadDetalle.EXTRA_PARAM_ID, item.getId());
 
+        //Con la siguiente condición consigo crear unos efectos diferentes para versiones superiores.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
             ActivityOptionsCompat activityOptions =
@@ -68,7 +68,5 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
         } else
             startActivity(intent);
     }
-
-
 
 }

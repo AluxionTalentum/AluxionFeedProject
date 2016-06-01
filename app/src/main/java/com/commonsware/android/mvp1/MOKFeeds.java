@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Arranque 1 on 31/05/2016.
- */
+//En esta clase se mockea la información que llega a través de un Json para poder parsear
+//cualquier feed.
+
 public class MOKFeeds {
 
     public ArrayList<Feeds> getArrayFeeds() {
@@ -28,6 +28,7 @@ public class MOKFeeds {
 
         public MOKFeeds(Resources resources)  {
 
+            //Con este try y catch creamos las categorías con elementos que necesitamos del Json.
                 try {
                       String jsonString = playWithRawFiles(resources);
 
@@ -51,6 +52,7 @@ public class MOKFeeds {
         }
 
 
+    //Con las siguientes dos funciones le indicaremos cúal es el Json y lo guardaremos en una array.
         public String playWithRawFiles(Resources resources) throws IOException {
                 String str="";
                 StringBuffer buf = new StringBuffer();
@@ -65,14 +67,11 @@ public class MOKFeeds {
 
                 return buf.toString();
         }
-
         public void parseJSON(String jsonString) throws JSONException {
-
                 JSONObject obj = new JSONObject(jsonString);
                 JSONArray feedsArray = obj.getJSONArray("feeds");
 
                 for (int i=0;i < feedsArray.length();i++) {
-
                      JSONObject feed = feedsArray.getJSONObject(i);
                      JSONArray titular =  feed.getJSONArray("titular");
 
@@ -88,7 +87,6 @@ public class MOKFeeds {
                                 videosStringArray[j] = videos.getString(j);
                         }
 
-
                         JSONArray contenido =  feed.getJSONArray("contenido");
                         String[] contenidoStringArray = new String[contenido.length()];
 
@@ -101,6 +99,7 @@ public class MOKFeeds {
                 }
         }
 
+    //Esta función es aquella a la que llama el try y catch para crear las categorías.
         public void createCategories(String title, String title1, String title2, String title3, String title4, String title5, String title6, String title7) {
 
                 Categoria cat1 = new Categoria("Tecnología", R.drawable.tecnologia, title);
@@ -111,7 +110,6 @@ public class MOKFeeds {
                 Categoria cat6 = new Categoria("Ciencia", R.drawable.ciencia, title5);
                 Categoria cat7 = new Categoria("Entretenimiento", R.drawable.entretenimiento, title6);
                 Categoria cat8 = new Categoria("Economía", R.drawable.economia, title7);
-
                 this.categorias = Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8);
         }
 

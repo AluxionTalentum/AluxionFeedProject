@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//Esta actividad es la función del Login, que se podría implementar a través de un servidor.
+
 public class LoginActivity extends Activity {
+
     public Button botonLogin;
     public Button textLoginNewAcccount;
 
@@ -14,6 +17,7 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        //Con esto escondo la barra de título de la aplicación
         getActionBar().hide();
         botonLogin = (Button) findViewById(R.id.botonLogin);
         textLoginNewAcccount = (Button) findViewById(R.id.textLoginNewAcccount);

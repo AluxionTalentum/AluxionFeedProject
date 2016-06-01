@@ -2,9 +2,8 @@ package com.commonsware.android.mvp1;
 
 import java.lang.reflect.Array;
 
-/**
- * Created by Jesús on 31/05/2016.
- */
+//Clase que representa la existencia de feeds y su constructor.
+
 public class Feeds {
     public String[] titular;
     private String[] contenido;

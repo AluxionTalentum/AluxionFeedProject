@@ -12,9 +12,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-/**
- * {@link BaseAdapter} para poblar coches en un grid view
- */
+//Este adaptador permite introducir las categorías en el GridView de la clase FeedActivity.
 
 public class AdaptadorDeCategorias extends BaseAdapter {
     private List<Categoria> categorias;
@@ -52,7 +50,7 @@ public class AdaptadorDeCategorias extends BaseAdapter {
         TextView nombreCategoria = (TextView) view.findViewById(R.id.nombre_categoria);
         TextView titularCategoria = (TextView) view.findViewById(R.id.titular_categoria);
 
-
+        //A través del Glide consigo introducir la imagen en el GridView.
         final Categoria item = getItem(position);
         Glide.with(imagenCategoria.getContext())
                 .load(item.getIdDrawable())
@@ -60,7 +58,6 @@ public class AdaptadorDeCategorias extends BaseAdapter {
 
         nombreCategoria.setText(item.getNombreCategoria());
         titularCategoria.setText(item.getPrimerosTitulares());
-        //view.setLayoutParams(new GridView.LayoutParams(GridView.AUTO_FIT, 900));
         return view;
     }
 

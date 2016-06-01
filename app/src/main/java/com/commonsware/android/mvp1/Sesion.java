@@ -2,14 +2,13 @@ package com.commonsware.android.mvp1;
 
 import java.util.List;
 
-/**
- * Created by Arranque 1 on 31/05/2016.
- */
+//Se trata de una clase Singleton para los feeds en uso.
+
 public class Sesion {
     private static Sesion instance = null;
     protected Sesion() {
-        // Exists only to defeat instantiation.
     }
+
     public static Sesion getInstance() {
         if(instance == null) {
             instance = new Sesion();
