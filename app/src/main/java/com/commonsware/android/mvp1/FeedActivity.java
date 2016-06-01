@@ -15,6 +15,8 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +30,9 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        MOKFeeds mokFeeds = new MOKFeeds();
+        MOKFeeds mokFeeds = new MOKFeeds(getResources());
         Sesion.getInstance().setCategorias(mokFeeds.getCategorias());
-        Sesion.getInstance().setFeeds(mokFeeds.getFeeds());
+        Sesion.getInstance().setFeeds(mokFeeds.getArrayFeeds());
 
 
         setContentView(R.layout.activity_feed);
@@ -67,5 +68,7 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
         } else
             startActivity(intent);
     }
+
+
 
 }

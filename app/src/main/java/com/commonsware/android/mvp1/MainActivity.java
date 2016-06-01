@@ -49,6 +49,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
   private ViewPager pager=null;
     private int currentPagerState = 2;
     LinearLayout segundoBloque;
+    private int contador = 0;
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
 
     @Override
     public void onPageSelected(int position) {
+        contador++;
 
         Log.d("onPageSelected position", Integer.toString(position));
         SampleAdapter adapter = (SampleAdapter) pager.getAdapter();
@@ -112,7 +114,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
             }
         }
 
-    @Override
+        @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
         View page=
@@ -121,6 +123,7 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
         VideoView vv=(VideoView)page.findViewById(R.id.videoView);
         TextView tvTitulo=(TextView)page.findViewById(R.id.bodyTitle);
         TextView tvBody=(TextView)page.findViewById(R.id.bodyText);
+
 
         addSlideListenerFor(page);
 
@@ -147,9 +150,9 @@ public class MainActivity extends Activity implements ViewPager.OnPageChangeList
       vv.setMediaController(mc);
 
 
-        if (position == 0) {
-            vv.start();
-        }
+            if (position == 0 && contador==0){
+                vv.start();
+            }
 
         //Esto es para hacer que no aparezcan los controles de vídeo (play, pause, rewind, ff)
 

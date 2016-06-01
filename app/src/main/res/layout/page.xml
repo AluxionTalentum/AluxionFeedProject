@@ -54,7 +54,7 @@ sothree:umanoShadowHeight="4dp">
 		android:layout_height="40dp"
 		android:textSize="10sp"
 		android:fontFamily="roboto"
-		android:text="¡DESLÍZAME O PÚLSAME...A TU GUSTO CAMPEÓN!"
+		android:text="Pulsa o desliza"
 		android:textColor="#f2f0f0"
 		android:background="#0b0b0b"
 
