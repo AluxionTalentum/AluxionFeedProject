@@ -11,6 +11,10 @@ import java.util.List;
  */
 public class MOKFeeds {
 
+        public List<Feeds> getFeeds() {
+                return feeds;
+        }
+
         private List<Feeds> feeds;
 
         public MOKFeeds(){
@@ -32,14 +36,14 @@ public class MOKFeeds {
 
         public void createCategories(String title, String title1, String title2, String title3, String title4, String title5, String title6, String title7) {
 
-                Categoria cat1 = new Categoria("Internacional", R.drawable.mercurio_np, title);
-                Categoria cat2 = new Categoria("Deportes", R.drawable.venus, title1);
-                Categoria cat3 = new Categoria("Entretenimiento", R.drawable.tierra, title2);
-                Categoria cat4 = new Categoria("Cultura", R.drawable.marte, title3);
-                Categoria cat5 = new Categoria("Corazón", R.drawable.jupiter, title4);
-                Categoria cat6 = new Categoria("Videojuegos", R.drawable.saturno, title5);
-                Categoria cat7 = new Categoria("Televisión", R.drawable.urano, title6);
-                Categoria cat8 = new Categoria("Tecnología", R.drawable.neptuno, title7);
+                Categoria cat1 = new Categoria("Cultura", R.drawable.mercurio_np, title);
+                Categoria cat2 = new Categoria("Tecnología", R.drawable.venus, title1);
+                Categoria cat3 = new Categoria("Deportes", R.drawable.tierra, title2);
+                Categoria cat4 = new Categoria("Moda", R.drawable.marte, title3);
+                Categoria cat5 = new Categoria("Política", R.drawable.jupiter, title4);
+                Categoria cat6 = new Categoria("Ciencia", R.drawable.saturno, title5);
+                Categoria cat7 = new Categoria("Entretenimiento", R.drawable.urano, title6);
+                Categoria cat8 = new Categoria("Economía", R.drawable.neptuno, title7);
 
                 this.categorias = Arrays.asList(cat1,cat2,cat3,cat4,cat5,cat6,cat7,cat8);
         }

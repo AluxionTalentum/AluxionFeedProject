@@ -30,8 +30,8 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
 
 
         MOKFeeds mokFeeds = new MOKFeeds();
-        List<Categoria> categorias = mokFeeds.getCategorias();
         Sesion.getInstance().setCategorias(mokFeeds.getCategorias());
+        Sesion.getInstance().setFeeds(mokFeeds.getFeeds());
 
 
         setContentView(R.layout.activity_feed);
@@ -47,6 +47,9 @@ public class FeedActivity extends Activity implements AdapterView.OnItemClickLis
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //Coche item = (Coche) parent.getItemAtPosition(position);
+
+
+        Sesion.getInstance().setSelectedFeed(Sesion.getInstance().getFeeds().get(position));
 
         Intent intent = new Intent(this, MainActivity.class);
         //intent.putExtra(ActividadDetalle.EXTRA_PARAM_ID, item.getId());

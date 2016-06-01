@@ -17,8 +17,17 @@ public class Sesion {
         return instance;
     }
 
-    private Feeds feeds;
+    private List<Feeds> feeds;
     private List<Categoria> categorias;
+    private Feeds selectedFeed;
+
+    public Feeds getSelectedFeed() {
+        return selectedFeed;
+    }
+
+    public void setSelectedFeed(Feeds selectedFeed) {
+        this.selectedFeed = selectedFeed;
+    }
 
     public List<Categoria> getCategorias() {
         return categorias;
@@ -27,10 +36,10 @@ public class Sesion {
         this.categorias = categorias;
     }
 
-    public Feeds getFeeds() {
+    public List<Feeds> getFeeds() {
         return feeds;
     }
-    public void setFeeds(Feeds feeds) {
+    public void setFeeds(List<Feeds> feeds) {
         this.feeds = feeds;
     }
 
